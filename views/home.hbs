@@ -1,0 +1,22 @@
+<body>
+  <h1>Welcome to the homepage</h1>
+  <h2>These are the existing To Dos:</h2>
+
+  <p>{{#each publication}}
+      {{title}}:
+      {{task}} <button>Delete this To Do</button>
+      </br>
+    {{/each}}</p>
+
+  <h1>Publish new To Do item</h1>
+
+  <form method='POST' action='/create-to-do-list-item'>
+    <label for='title-input'>Title</label>
+    <input id='title-input' type='text' name='title' placeholder='Title' />
+
+    <label for='task-input'>Task Description</label>
+    <input id='task-input' type='task' name='task' placeholder='Task' />
+
+    <button>Create New To Do Item</button>
+  </form>
+</body>
