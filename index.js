@@ -6,9 +6,8 @@
 // that takes a "task" input and submits it to "/create-to-do-list-item" DONE
 // List to do list items that have been created. DONE
 // Every to do list item should have a "delete" button next to it DONE
-
 // that when pressed deletes the item and brings the user
-// back to the home page.
+// back to the home page DONE
 // # Extra
 // Allow the user to update any to do list item.
 
