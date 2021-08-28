@@ -58,6 +58,17 @@ app.post('/create-to-do-list-item', (request, response, next) => {
     });
 });
 
+app.post('/publication/:id/delete', (request, response, next) => {
+  const id = request.params.id;
+  Publication.findByIdAndDelete(id)
+    .then(() => {
+      response.redirect(`/`);
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
 const MONGODB_URI = process.env.MONGODB_URI;
 
 mongoose.connect(MONGODB_URI).then(() => {

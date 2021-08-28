@@ -4,7 +4,10 @@
 
   <p>{{#each publication}}
       {{title}}:
-      {{task}} <button>Delete this To Do</button>
+      {{task}}
+      <form method='POST' action='/publication/{{_id}}/delete'>
+  <button type='submit'>Delete This To Do Item</button>
+</form>
       </br>
     {{/each}}</p>
 
