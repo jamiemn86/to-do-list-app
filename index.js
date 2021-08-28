@@ -18,8 +18,10 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 const path = require('path');
 const Publication = require('./models/publication');
-
+const nodeSassMiddleware = require('node-sass-middleware');
 const app = express();
+const morgan = require('morgan');
+const favicon = require('serve-favicon');
 
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
 
@@ -27,7 +29,20 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
+app.use(
+  nodeSassMiddleware({
+    dest: path.join(__dirname, 'public/styles'),
+    src: path.join(__dirname, 'styles'),
+    force: true,
+    outputStyle: 'expanded',
+    prefix: '/styles'
+  })
+),
+  app.use(express.urlencoded({ extended: true }));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+// Favicon
 
 // Routes
 app.get('/', (request, response, next) => {
