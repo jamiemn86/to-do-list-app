@@ -1,5 +1,6 @@
 <body>
-  <h1>Welcome to the homepage</h1>
+    <div class="mainpage">
+        <div class="welcomelist"><h1>Welcome to the homepage</h1>
   <h2>These are the existing To Dos:</h2>
 
   <p>{{#each publication}}
@@ -9,9 +10,9 @@
   <button type='submit'>Delete This To Do Item</button>
 </form>
       </br>
-    {{/each}}</p>
-
-  <h1>Publish new To Do item</h1>
+    {{/each}}</p></div>
+        
+<div class="publish"><h1>Publish new To Do item</h1>
 
   <form method='POST' action='/create-to-do-list-item'>
     <label for='title-input'>Title</label>
@@ -21,5 +22,7 @@
     <input id='task-input' type='task' name='task' placeholder='Task' />
 
     <button>Create New To Do Item</button>
-  </form>
+  </form></div>
+  </div>
+  
 </body>
